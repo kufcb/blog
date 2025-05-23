@@ -22,6 +22,8 @@ jobs:
 
       - name: 设置 pnpm
         uses: pnpm/action-setup@v4
+        with:
+          version: 10.11.0
 
 
       - name: 设置 Node.js
@@ -48,3 +50,6 @@ jobs:
           # 部署文档
           branch: gh-pages
           folder: src/.vuepress/dist
+        env:
+            # @see https://docs.github.com/cn/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
